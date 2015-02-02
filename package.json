@@ -1,0 +1,22 @@
+{
+  "name": "FP-Presentation",
+  "version": "1.0.0",
+  "description": "A basic presentation of functional programming",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tombert/FP-Presentation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tombert/FP-Presentation/issues"
+  },
+  "homepage": "https://github.com/tombert/FP-Presentation",
+  "dependencies": {
+    "lodash": "^3.0.1"
+  }
+}
