@@ -1,0 +1,105 @@
+\documentclass{beamer}
+\title{An Intro to Functional Programming}
+\subtitle{A Better Way to Program if you like Math and Stuff}
+\author{Thomas Gebert}
+\date{February 6, 2015}
+
+
+\usepackage{listings}
+\usepackage{color}
+\definecolor{lightpurple}{rgb}{0.8,0.8,1}
+
+\lstset{
+	stepnumber=1,
+	numberstyle=\small\color{black},
+	basicstyle=\ttfamily,
+	keywordstyle=\color{black},
+	commentstyle=\color{black},
+	stringstyle=\color{black},
+	frame=single,
+	tabsize=2,
+	backgroundcolor=\color{lightpurple}
+	}
+ % Define listings style
+
+\usetheme{Warsaw}
+
+\begin{document}
+  \frame{\titlepage}
+  \begin{frame}
+  	\frametitle{What is Functional Programming?} 
+  	Functional Programming has several definitions. 
+	  \begin{itemize}
+	    \item Programming in regards to purity, and in particular, how programming relates to mathematics
+	    \item Programming with functions.
+	  \end{itemize}
+    
+  \end{frame}
+  \begin{frame}
+  	\frametitle{But Tom, I already program with functions!}
+  	You actually program with subroutine.  There are a few differences: 
+  	\begin{itemize}
+  		\item  In mathematics, you can always expect the same result when supplying the same argument, following an $ f(x) = y $ pattern
+  		\item In most C-style programming languages, you cannot pass functions around like variables.
+  	\end{itemize}
+  	%More content goes here
+  \end{frame}
+  \begin{frame}
+  	\frametitle{Ok, so what's the big deal about math?}
+  	If you utilize math, you can exploit a few useful properties. 
+  	\begin{itemize}
+  		\item Composition: $$ f\left(g\right) = f \circ g = h $$
+	  	\item Partial Application $$g = f\left(5,x\right)$$
+  	\end{itemize}
+  \end{frame}
+\begin{frame}
+	\frametitle{Let the computer write the code for you.}
+	\begin{itemize}
+		\item Writing instructions for the computer to follow is not fun.
+		\item Instead, describe what you want the computer to do, not every step of how you want it done. 
+	\end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+	\frametitle{Lodash!}
+	JavaScript actually allows for both of these properties (and a lot more) using the excellent Lodash library.
+	\begin{lstlisting}[basicstyle=\tiny]
+	 _.compose
+	 var realNameMap = {
+	 'pebbles': 'penelope'
+	 };
+	 
+	 var format = function(name) {
+	 name = realNameMap[name.toLowerCase()] || name;
+	 return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+	 };
+	 
+	 var greet = function(formatted) {
+	 return 'Hiya ' + formatted + '!';
+	 };
+	 
+	 var welcome = _.compose(greet, format);
+	 welcome('pebbles');
+	 // → 'Hiya Penelope!'
+	\end{lstlisting}
+    
+\end{frame}
+\begin{frame}[fragile]
+	\frametitle{Lodash!}
+		JavaScript actually allows for both of these properties (and a lot more) using the excellent Lodash library.
+	\begin{lstlisting}
+		var greet = function(greeting, name) { 
+		  return greeting + ' ' + name; 
+		  };
+		var hi = _.partial(greet, 'hi');
+		hi('fred');
+		// → 'hi fred
+	\end{lstlisting}
+\end{frame}
+\begin{frame}
+	\begin{center}
+		Questions?
+	\end{center}
+	
+\end{frame}
+  % etc
+\end{document}

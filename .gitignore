@@ -26,3 +26,12 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+
+# LaTeX stuff 
+*.aux
+*.nav
+*.vrb
+*.gz
+*.out
+*.snm
+*.toc
